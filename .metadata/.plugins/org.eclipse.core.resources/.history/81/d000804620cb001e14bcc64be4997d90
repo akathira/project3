@@ -1,0 +1,16 @@
+package com.tcs.rest;
+
+import org.springframework.boot.SpringApplication;
+import com.dummy.test.*;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.ComponentScan;
+
+@SpringBootApplication
+@ComponentScan(basePackages = {"com.dummy.test"})
+public class Day12BootRestExceptionApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(Day12BootRestExceptionApplication.class, args);
+	}
+
+}

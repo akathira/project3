@@ -1,0 +1,6 @@
+package com.tcs.restclient;
+
+public class TestController {
+private String test;
+private String as;
+}

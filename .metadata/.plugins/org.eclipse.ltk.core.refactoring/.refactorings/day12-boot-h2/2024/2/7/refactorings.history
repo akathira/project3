@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename resource &apos;day12-boot-h2/src/main/resources/tables.sql&apos; to &apos;data.sql&apos;" description="Rename resource &apos;tables.sql&apos;" flags="7" id="org.eclipse.ltk.core.refactoring.rename.resource" input="src/main/resources/tables.sql" name="data.sql" stamp="1707823078519" updateReferences="true"/>
+</session>

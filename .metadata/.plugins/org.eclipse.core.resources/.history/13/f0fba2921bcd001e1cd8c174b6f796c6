@@ -1,0 +1,5 @@
+package com.tcs.investment.model;
+
+public class InvestorswithTrans {
+
+}

@@ -1,0 +1,18 @@
+package com.tcs.investment.resource;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.tcs.investment.service.InvestmentService;
+
+
+@RestController
+@RequestMapping("/investmenet")
+public class InvestmentController {
+	
+	@Autowired
+	InvestmentService service;
+
+}
+

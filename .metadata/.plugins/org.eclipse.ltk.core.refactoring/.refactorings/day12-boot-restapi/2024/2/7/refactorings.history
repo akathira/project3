@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename field &apos;productId&apos; in &apos;com.tcs.rest.resource.Product&apos; to &apos;pid&apos;&#x0A;- Original project: &apos;day12-boot-restapi&apos;&#x0A;- Original element: &apos;com.tcs.rest.resource.Product.productId&apos;&#x0A;- Renamed element: &apos;com.tcs.rest.resource.Product.pid&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" delegate="false" deprecate="false" description="Rename field &apos;productId&apos;" flags="589826" getter="false" id="org.eclipse.jdt.ui.rename.field" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tcs.rest.resource{Product.java[Product^productId" name="pid" references="true" setter="false" stamp="1707803463109" textual="false" version="1.0"/>
+</session>

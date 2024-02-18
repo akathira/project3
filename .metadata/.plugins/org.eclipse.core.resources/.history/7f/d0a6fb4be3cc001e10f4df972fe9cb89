@@ -1,0 +1,8 @@
+package com.tcs.investment.service;
+
+import org.springframework.stereotype.Service;
+
+@Service
+public class InvestmentService {
+
+}

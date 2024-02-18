@@ -1,0 +1,84 @@
+package com.tcs.investment.service;
+
+import java.util.List;
+import java.util.Date;
+import java.util.Optional;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.tcs.investment.model.Investors;
+import com.tcs.investment.model.Transactions;
+import com.tcs.investment.repository.InvestorRepository;
+import com.tcs.investment.repository.TransactionRepository;
+
+@Service
+public class InvestmentService {
+
+   @Autowired
+   InvestorRepository repo;
+
+   @Autowired
+   TransactionRepository transrepo;
+
+	public List<Investors> getInvestors() {
+		List<Investors> list = repo.findAll();
+		return list;
+
+	}
+
+	public Investors getInvestorsById(int id) {
+		Optional<Investors> investors  = repo.findById(id);
+		
+		if(investors.isEmpty())
+		{
+			throw new NullPointerException("Investor not found");
+		}
+		return investors.get();
+	}
+
+	public Investors save(Investors investor) {
+		
+		List<Transactions> tr = investor.getTransactions();
+		for(Transactions trs: tr)
+		{
+			trs.setTransactionDate(new Date().toString());
+		}
+		
+		return repo.save(investor);
+
+	}
+
+	public Investors update(Investors investors) {
+		Optional<Investors> in = repo.findById(investors.getId());
+		Investors getInvestors = in.get();
+		getInvestors.setName(investors.getName());
+		getInvestors.setAmount(investors.getAmount());
+		getInvestors.setAddress(investors.getAddress());
+
+		List<Transactions> tr = investors.getTransactions();
+		for(Transactions trs: tr)
+		{
+			trs.setTransactionDate(new Date().toString());
+		}
+
+		getInvestors.setTransactions(tr);
+
+		return repo.save(getInvestors);
+	}
+
+	public boolean delete(int id) {
+		Optional<Investors> in = repo.findById(id);
+		repo.delete(in.get());
+		return true;
+	}
+	
+       public Transactions save(Transactions transactions) {
+    	   
+    	Investors validate = getInvestorsById(transactions.getInvestors().getId());
+		
+		return transrepo.save(transactions);
+
+	}
+
+}

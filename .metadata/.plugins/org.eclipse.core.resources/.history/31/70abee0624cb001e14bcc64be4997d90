@@ -1,0 +1,5 @@
+package com.tcs.restclient;
+
+public class Product {
+
+}

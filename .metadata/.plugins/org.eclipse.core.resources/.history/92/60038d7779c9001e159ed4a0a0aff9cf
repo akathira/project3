@@ -1,0 +1,17 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<head> 
+    <title>Title SprintBoot</title> 
+    
+</head>
+<body>
+    <H1></H1>Welcome to SpringBoot </H1>body>
+    <p th:text="${lname}"></p>
+    <br>
+     <p th:text="${mobile}"></p>
+     <br>
+      <p th:text="${email}"></p>
+      <br>
+    
+</body>
+</html>

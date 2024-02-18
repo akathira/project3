@@ -1,0 +1,129 @@
+package com.tcs.investment.service;
+
+import java.util.List;
+import java.util.Date;
+import java.util.Optional;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+import com.tcs.investment.model.Investors;
+import com.tcs.investment.model.Transactions;
+import com.tcs.investment.repository.InvestorRepository;
+import com.tcs.investment.repository.TransactionRepository;
+
+
+@Service
+public class InvestmentService {
+
+	@Autowired
+	InvestorRepository repo;
+
+	@Autowired
+	TransactionRepository transrepo;
+
+	public List<Investors> getInvestors() {
+		List<Investors> list = repo.findAll();
+		return list;
+
+	}
+
+	public Investors getInvestorsById(int id) {
+		Optional<Investors> investors = repo.findById(id);
+
+		if (investors.isEmpty()) {
+			throw new NullPointerException("Investor not found");
+		}
+		return investors.get();
+	}
+
+	public Investors save(Investors investor) {
+
+		List<Transactions> tr = investor.getTransactions();
+		for (Transactions trs : tr) {
+			trs.setTransactionDate(new Date().toString());
+		}
+
+		return repo.save(investor);
+
+	}
+
+	public Investors update(Investors investors) {
+		Optional<Investors> in = repo.findById(investors.getId());
+		Investors getInvestors = in.get();
+		getInvestors.setName(investors.getName());
+		getInvestors.setAmount(investors.getAmount());
+		getInvestors.setAddress(investors.getAddress());
+
+		List<Transactions> tr = investors.getTransactions();
+		for (Transactions trs : tr) {
+			trs.setTransactionDate(new Date().toString());
+		}
+
+		getInvestors.setTransactions(tr);
+
+		return repo.save(getInvestors);
+	}
+
+	public boolean delete(int id) {
+		Optional<Investors> in = repo.findById(id);
+		if (in.isEmpty()) {
+			throw new NullPointerException("Investor not found");
+		}
+		repo.delete(in.get());
+		return true;
+	}
+	
+	public Transactions save(Transactions transactions) throws Exception {
+
+		Investors validate = getInvestorsById(transactions.getInvestors().getId());
+
+		if (validate == null) {
+			throw new Exception("Transaction not created due to invalid InvestorId");
+		}
+		transactions.setTransactionDate(new Date().toString());
+		transactions.setInvestors(validate);
+		return transrepo.save(transactions);
+
+	}
+	
+	public Transactions getTransactionById(int id) {
+		Optional<Transactions> transactions = transrepo.findById(id);
+
+		if (transactions.isEmpty()) {
+			throw new NullPointerException("Transaction not found");
+		}
+		//Investors in = getInvestorsById(transactions.get().getInvestors().getId());
+		//transactions.get().setInvestors(in);
+		
+		return transactions.get();
+	}
+	
+	public Transactions update(Transactions transactions) throws Exception {
+		Investors validate = getInvestorsById(transactions.getInvestors().getId());
+
+		if (validate == null) {
+			throw new Exception("Transaction not created due to invalid InvestorId");
+		}
+		Optional<Transactions> trans = transrepo.findById(transactions.getTransactionId());
+		Transactions getTransactions= trans.get();
+		getTransactions.setTransactionAmount(transactions.getTransactionAmount());
+		getTransactions.setTransactionDate(new Date().toString());
+		getTransactions.setInvestors(validate);
+
+		return transrepo.save(getTransactions);
+	}
+	
+	public boolean deleteForTransaction(int id) {
+		Optional<Transactions> trans = transrepo.findById(id);
+		if (trans.isEmpty()) {
+			throw new NullPointerException("Transaction not found");
+		}
+		transrepo.delete(trans.get());
+		return true;
+	}
+
+	public List<Transactions> getTransactions() {
+		List<Transactions> list = transrepo.findAll();
+		return list;
+
+	}
+}

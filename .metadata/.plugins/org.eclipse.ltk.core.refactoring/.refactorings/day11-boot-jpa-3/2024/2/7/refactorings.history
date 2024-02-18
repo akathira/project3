@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<session version="1.0">
+<refactoring comment="Rename type &apos;com.tcs.jpa.ProoductController&apos; to &apos;ProductController&apos;&#x0A;- Original project: &apos;day11-boot-jpa-3&apos;&#x0A;- Original element: &apos;com.tcs.jpa.ProoductController&apos;&#x0A;- Renamed element: &apos;com.tcs.jpa.ProductController&apos;&#x0A;- Update references to refactored element&#x0A;- Update textual occurrences in comments and strings" description="Rename type &apos;ProoductController&apos;" flags="589830" id="org.eclipse.jdt.ui.rename.type" input="/src\/main\/java=/optional=/true=/=/maven.pomderived=/true=/&lt;com.tcs.jpa{ProoductController.java[ProoductController" matchStrategy="1" name="ProductController" qualified="false" references="true" similarDeclarations="false" stamp="1707738784400" textual="false" version="1.0"/>
+</session>

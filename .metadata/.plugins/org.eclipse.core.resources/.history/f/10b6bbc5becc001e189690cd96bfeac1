@@ -1,0 +1,5 @@
+package com.tcs.investment.repository;
+
+public interface Investor {
+
+}

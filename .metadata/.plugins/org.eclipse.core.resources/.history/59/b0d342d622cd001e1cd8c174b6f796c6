@@ -1,0 +1,43 @@
+package com.tcs.investment.model;
+
+import java.util.List;
+
+public class InvestorswithTrans {
+
+	private Investors invest;
+
+	private List<Transactions> trans;
+	public InvestorswithTrans() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public InvestorswithTrans(Investors invest, List<Transactions> trans) {
+		super();
+		this.invest = invest;
+		this.trans = trans;
+	}
+
+	public Investors getInvest() {
+		return invest;
+	}
+
+	public void setInvest(Investors invest) {
+		this.invest = invest;
+	}
+
+	public List<Transactions> getTrans() {
+		return trans;
+	}
+
+	public void setTrans(List<Transactions> trans) {
+		this.trans = trans;
+	}
+
+	@Override
+	public String toString() {
+		return "InvestorswithTrans [invest=" + invest + ", trans=" + trans + "]";
+	}
+
+	
+
+}

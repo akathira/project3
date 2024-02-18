@@ -1,0 +1,6 @@
+package com.tcs.jpa;
+
+@Entity
+public class Product {
+
+}

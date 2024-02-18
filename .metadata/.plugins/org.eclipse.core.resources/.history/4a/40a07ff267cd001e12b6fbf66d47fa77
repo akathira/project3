@@ -1,0 +1,19 @@
+package com.tcs.investment.repository;
+
+import java.util.List;
+import java.util.Optional;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
+
+import com.tcs.investment.model.Investors;
+import com.tcs.investment.model.Transactions;
+
+@Repository
+public interface TransactionRepository extends JpaRepository<Transactions, Integer> {
+
+	@Query(value = "select * from transactions", nativeQuery = true)
+	List<Transactions> findByinvestorId(int id);
+}

@@ -1,0 +1,44 @@
+package com.tcs.investment.model;
+
+import java.util.List;
+import java.util.Optional;
+
+public class InvestorswithTrans {
+
+	private Optional<Investors> invest;
+
+	private List<Transactions> trans;
+	public InvestorswithTrans() {
+		super();
+	}
+
+	public InvestorswithTrans(Investors invest, List<Transactions> trans) {
+		super();
+		this.invest = Optional.of(invest);
+		this.trans = trans;
+	}
+
+	public Optional<Investors> getInvest() {
+		return invest;
+	}
+
+	public void setInvest(Optional<Investors> inv) {
+		this.invest = inv;
+	}
+
+	public List<Transactions> getTrans() {
+		return trans;
+	}
+
+	public void setTrans(List<Transactions> trans) {
+		this.trans = trans;
+	}
+
+	@Override
+	public String toString() {
+		return "InvestorswithTrans [invest=" + invest + ", trans=" + trans + "]";
+	}
+
+	
+
+}

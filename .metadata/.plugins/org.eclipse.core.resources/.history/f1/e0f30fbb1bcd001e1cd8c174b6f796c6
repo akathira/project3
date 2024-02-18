@@ -1,0 +1,15 @@
+package com.tcs.investment.model;
+
+import java.util.List;
+
+public class InvestorswithTrans {
+
+	private Investors invest;
+
+	private List<Transactions> trans;
+
+	public InvestorswithTrans(Investors invest, List<Transactions> trans) {
+		// TODO Auto-generated constructor stub
+	}
+
+}
